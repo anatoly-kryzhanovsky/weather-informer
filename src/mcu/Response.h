@@ -1,5 +1,4 @@
-#ifndef __RESPONSE_H__
-#define __RESPONSE_H__
+#pragma once
 
 class Response
 {	
@@ -13,5 +12,3 @@ class Response
 	private:
 		const char* readLine();
 };
-
-#endif

@@ -1,11 +1,21 @@
 #include "logger.h"
 
-void Logger::log(String* s)
+Logger::Logger()
 {
-	Serial.println(*s);
+    _buffer = new char[512];
 }
 
-void Logger::log(char* s)
+Logger::~Logger()
 {
-  Serial.println(s);
+    delete[] _buffer;
+}
+
+void Logger::log(const char* s, ...)
+{
+    va_list args;
+    va_start(args, s);
+    vsprintf(_buffer, s, args);
+    va_end(args);
+  
+    Serial.println(_buffer);
 }

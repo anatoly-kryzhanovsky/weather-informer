@@ -1,7 +1,8 @@
-#ifndef __WIFICONNECTION_H__
-#define __WIFICONNECTION_H__
+#pragma once
 
+#include "WiFiClient.h"
 #include "connection.h"
+#include "logger.h"
 
 class WifiConnection: public Connection
 {
@@ -10,8 +11,7 @@ class WifiConnection: public Connection
 		const char* _ssid;
 		const char* _key;
 		const Logger* _logger;
-		int _connectionTimout;
-		char* _buffer;		
+		int _connectionTimeout;		
 	
 	public: 
 		WifiConnection(const char* ssid, const char* key, int connectionTimeout);
@@ -28,5 +28,3 @@ class WifiConnection: public Connection
 		virtual size_t read(char* buffer, size_t len);
 		virtual size_t write(const char* buffer, size_t len);
 };
-
-#endif

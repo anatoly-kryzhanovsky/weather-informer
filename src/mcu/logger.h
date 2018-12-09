@@ -1,13 +1,15 @@
-#ifndef __LOGGER_H__
-#define __LOGGER_H__
+#pragma once
 
 #include "Arduino.h"
 
 class Logger
 {
-	public:
-		void log(String *s);
-    void log(char *s);
-};
+private:
+	char* _buffer;
 
-#endif
+public:	
+	Logger();
+	~Logger();
+	
+	void log(const char *s, ...);
+};
