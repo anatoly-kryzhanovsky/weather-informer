@@ -11,7 +11,7 @@ unsigned char Resources::IconSun[] = {
   0x80, 0x00, 0x00, 0x00 
 };
 
-static unsigned char Resources::IconCloud[] = {
+unsigned char Resources::IconCloud[] = {
   0x00, 0x00, 0x00, 0x00, 
   0x00, 0x00, 0xc0, 0x00, 
   0x20, 0x03, 0x10, 0x02, 
@@ -22,7 +22,7 @@ static unsigned char Resources::IconCloud[] = {
   0x00, 0x00, 0x00, 0x00 
 };
 
-static unsigned char Resources::IconRainLight[] = {
+unsigned char Resources::IconRainLight[] = {
   0x00, 0x00, 0xc0, 0x00,
   0xe0, 0x03, 0xf0, 0x03,
   0xf0, 0x3f, 0xfc, 0x7f,
@@ -33,7 +33,7 @@ static unsigned char Resources::IconRainLight[] = {
   0x40, 0x00, 0x00, 0x00 
 };
 
-static unsigned char Resources::IconRainHeavy[] = {
+unsigned char Resources::IconRainHeavy[] = {
   0x00, 0x00, 0xc0, 0x00,
   0xe0, 0x03, 0xf0, 0x03,
   0xf0, 0x3f, 0xfc, 0x7f,
@@ -44,7 +44,7 @@ static unsigned char Resources::IconRainHeavy[] = {
   0x00, 0x00, 0x00, 0x00
 };
 
-static unsigned char Resources::IconCloudLight[] = {
+unsigned char Resources::IconCloudLight[] = {
   0x80, 0x88, 0x00, 0x5d, 
   0x00, 0x22, 0xc0, 0x41, 
   0x20, 0xc3, 0x10, 0x42, 
@@ -55,7 +55,7 @@ static unsigned char Resources::IconCloudLight[] = {
   0x00, 0x00, 0x00, 0x00 
 };
 
-static unsigned char Resources::IconSnowLight[] = {
+unsigned char Resources::IconSnowLight[] = {
   0x00, 0x00, 0xc0, 0x00,
   0x20, 0x03, 0x10, 0x02,
   0x10, 0x3c, 0x0c, 0x40,
@@ -66,7 +66,7 @@ static unsigned char Resources::IconSnowLight[] = {
   0xa0, 0x02, 0x80, 0x00
 };
   
-static unsigned char Resources::IconSnowHeavy[] = {
+unsigned char Resources::IconSnowHeavy[] = {
   0x00, 0x00, 0xc0, 0x00,
   0x20, 0x03, 0x10, 0x02,
   0x10, 0x3c, 0x0c, 0x40,
@@ -77,7 +77,7 @@ static unsigned char Resources::IconSnowHeavy[] = {
   0xb5, 0xaa, 0x84, 0x20
 };
   
-static unsigned char Resources::IconRainAndSnow[] = {
+unsigned char Resources::IconRainAndSnow[] = {
   0x00, 0x00, 0xc0, 0x00,
   0x20, 0x03, 0x10, 0x02,
   0x10, 0x3c, 0x0c, 0x40,
@@ -88,7 +88,7 @@ static unsigned char Resources::IconRainAndSnow[] = {
   0xa4, 0x42, 0x82, 0x20
 };
 
-static unsigned char Resources::IconThunderstorm[] = {
+unsigned char Resources::IconThunderstorm[] = {
   0x00, 0x00, 0xc0, 0x00,
   0x20, 0x03, 0x10, 0x02,
   0x10, 0x3c, 0x0c, 0x40,
@@ -98,3 +98,47 @@ static unsigned char Resources::IconThunderstorm[] = {
   0x04, 0x0e, 0x10, 0x07,
   0x88, 0x03, 0xc4, 0x00
 };
+
+unsigned char Resources::IconUnknow[] = {
+  0x00, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0xc0, 0x07,
+  0x20, 0x08, 0x20, 0x08,
+  0x00, 0x08, 0x00, 0x08,
+  0x00, 0x04, 0x00, 0x03,
+  0x80, 0x00, 0x80, 0x00,
+  0x80, 0x00, 0x00, 0x00,
+  0x80, 0x00, 0x00, 0x00
+}
+
+unsigned char* Resources::getIcon(int weatherCode)
+{
+    if(weatherCode == 800)
+      return IconSun;
+
+    if(weatherCode == 801)
+      return IconCloudLight;
+
+    if(weatherCode >= 802 && weatherCode <= 804)
+      return IconCloud;
+
+    if((weatherCode >= 500 && weatherCode <= 504) || 
+      (weatherCode >=300 && weatherCode < 400))
+      return IconRainLight;
+
+    if(weatherCode >= 511 && weatherCode <= 531)
+      return IconRainHeavy;
+
+    if(weatherCode >= 600 && weatherCode <= 601)
+      return IconSnowLight;
+
+    if(weatherCode >= 602 && weatherCode <= 612)
+      return IconSnowHeavy;
+
+    if(weatherCode >= 200 && weatherCode < 300)
+      return IconThunderstorm;
+
+    if(weatherCode >= 615 && weatherCode <= 622)
+      return IconRainAndSnow;
+
+    return IconUnknow;
+}

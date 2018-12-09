@@ -12,4 +12,8 @@ public:
     static unsigned char IconSnowHeavy[];
     static unsigned char IconRainAndSnow[];
     static unsigned char IconThunderstorm[];  
+    static unsigned char IconUnknow[];
+
+public:
+    static unsigned char* getIcon(int weatherCode);
 };

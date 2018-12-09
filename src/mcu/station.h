@@ -15,20 +15,20 @@
 
 class Station 
 {
-	private:
-		const char* SSID = "Exception";
-		const char* Password = "gfhjkmegshm";
-		const int NTP_PACKET_SIZE = 48;		
+private:
+	const char* SSID = "Exception";
+	const char* Password = "gfhjkmegshm";
+	const int NTP_PACKET_SIZE = 48;		
     const unsigned int localPort = 8888;
     const int timeZone = 4;
-		static IPAddress NtpServer;
+	static IPAddress NtpServer;
 		
-		const int HTTP_OK = 200;
-		const int CITY_ID = 472757;
-		const int CURRENT =    0;
-		const int FORECAST_3 = 1;
-		const int FORECAST_6 = 2;
-		const char* APP_KEY = "95da1d8c5ac24ebf561c0a6382ce9f9b";
+	const int HTTP_OK = 200;
+	const int CITY_ID = 472757;
+	const int CURRENT =    0;
+	const int FORECAST_3 = 1;
+	const int FORECAST_6 = 2;
+	const char* APP_KEY = "95da1d8c5ac24ebf561c0a6382ce9f9b";
 		
 	private:
 		U8G2_SSD1306_128X64_NONAME_F_HW_I2C* _display;
